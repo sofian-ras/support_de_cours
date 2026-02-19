@@ -1,0 +1,59 @@
+services:
+  db:
+    image: postgres:18
+    container_name: local_pgdb_ecommerce
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: supershop
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - local_pgdata_ecommerce:/var/lib/postgresql
+      - ./scripts:/docker-entrypoint-initdb.d
+    networks:
+      - db_network_ecommerce
+
+  pgadmin:
+    depends_on:
+      - db
+    image: dpage/pgadmin4
+    container_name: pgadmin_gui_ecommerce
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    volumes:
+      - local_pgadmin_ecommerce:/var/lib/pgadmin
+    networks:
+      - db_network_ecommerce
+
+  report:
+    build:
+      context: ./python
+      dockerfile: Dockerfile
+    container_name: supershop_report
+    depends_on:
+      - db
+    environment:
+      DB_NAME: supershop
+      DB_USER: admin
+      DB_PASSWORD: admin
+      DB_HOST: db
+      DB_PORT: 5432
+    volumes:
+      - ./rapport:/app/rapport
+    networks:
+      - db_network_ecommerce
+
+volumes:
+  local_pgdata_ecommerce:
+  local_pgadmin_ecommerce:
+
+networks:
+  db_network_ecommerce: {}
+
+
+# docker-compose up -d

@@ -1,0 +1,10 @@
+date,produit_id,quantite,prix_unitaire,client_id,montant_total,nom,categorie,fournisseur
+2024-01-15,1,2,29.99,101,59.98,Souris,Périphérique,TechCo
+2024-01-15,2,1,49.99,102,49.99,Clavier,Périphérique,TechCo
+2024-01-15,3,3,19.99,103,59.97,Câble USB,Accessoire,AccessPlus
+2024-01-16,1,1,29.99,104,29.99,Souris,Périphérique,TechCo
+2024-01-16,2,2,49.99,105,99.98,Clavier,Périphérique,TechCo
+2024-01-16,4,1,99.99,106,99.99,Webcam,Périphérique,VisionTech
+2024-01-17,3,5,19.99,107,99.94999999999999,Câble USB,Accessoire,AccessPlus
+2024-01-17,1,2,29.99,108,59.98,Souris,Périphérique,TechCo
+2024-01-17,5,1,149.99,109,149.99,Casque,Audio,SoundPro

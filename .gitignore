@@ -1,0 +1,19 @@
+# Binaires / installateurs
+*.exe
+*.msi
+*.zip
+*.7z
+*.rar
+
+# Java/JDK
+jdk*/
+**/jdk*/
+*.jdk
+
+# PowerPoints lourds (optionnel si tu veux)
+*.pptx
+
+# Dossiers lourds courants (optionnel)
+node_modules/
+dist/
+build/

@@ -1,0 +1,10 @@
+use("demo");
+//db.products.find()
+// db.products.find({category: "Electronics" })
+// db.products.find({available: true}, {_id: 0, name: 1, price: 1 })
+//db.products.find({price: {$gt: 100, $lt: 500}})
+//db.products.find({ category: {$in: ["Wearables", "Audio", "Electronics" ]}})
+//db.products.find({tags: "drone"})
+//db.products.find({"comments.user": "Alice"})
+//db.products.updateOne({id: 1},{$set: {price: 10124}})
+db.products.find({id: 1})

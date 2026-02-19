@@ -1,0 +1,38 @@
+RAPPORT SUPERSHOP - ANALYSE DES VENTES
+Généré le : 2025-11-27 17:20:27
+============================================================
+
+1) Chiffre d'affaires total
+------------------------------------------------------------
+Le chiffre d'affaires total (hors commandes annulées) est de 5700.20 €.
+
+
+2) Panier moyen
+------------------------------------------------------------
+Le panier moyen (hors commandes annulées) est de 259.10 € par commande.
+
+
+3) Article le plus vendu
+------------------------------------------------------------
+L'article ayant généré le plus de ventes (en quantité totale) est « Gel douche FreshEnergy » avec 15 unités vendues.
+
+
+4) Top 3 des clients ayant le plus dépensé
+------------------------------------------------------------
+Les trois clients ayant le plus dépensé (hors commandes annulées) sont :
+1. Alice Martin — 1301.47 €
+2. Laura Carpentier — 1038.98 €
+3. Olivier Masson — 687.00 €
+
+
+5) Chiffre d'affaires par catégorie
+------------------------------------------------------------
+Répartition du chiffre d'affaires (hors commandes annulées) par catégorie de produits :
+- Informatique : 3073.00 €
+- Jardin & Extérieur : 897.00 €
+- Électronique : 619.36 €
+- Maison & Cuisine : 317.98 €
+- Sport & Loisirs : 269.87 €
+- Beauté & Santé : 265.65 €
+- Jeux & Jouets : 257.34 €
+

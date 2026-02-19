@@ -1,0 +1,64 @@
+services:
+  # Déclaration des servces que nous souhaitons exécuté avec Docker compose
+  # Chaque service correspond à un conteneur docker individuel. 
+  # !! Tout conteneur initialisé dans le même docker compose partage le même network
+
+  #Service de base de donnée MySQL
+  db:
+    # L'image docker à utiliser pour ce service (ici, la version officiel de mysql)
+    image: mysql
+    # Variables d'environnements pour configuration de notre BDD
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: default
+    # Politique de rédémarrage du conteneur. "always" signifie que le conteneur redémarrera automatique si il venait à s'arreter. 
+    restart: always
+    # Montages de volume pour persister les données entre le redémarrages des conteneurs.
+    volumes: 
+      # Le volume nommé "db_data" est monté sur le répertoire de donnée MYSQL
+      - db_data:/var/lib/mysql
+    # Mappage des ports. le port 3306 du conteneur (par défaut pour MYSQL) est mappé au port 3307 de la machine en local.
+    ports:
+      - 3307:3306
+    networks:
+      # Renommage du réseau en "mysql-phpmyadmin"
+      - mysql-phpmyadmin
+
+  # Service phpMyAdmin pour gérer la bdd mysql via interface graphique
+  phpmyadmin:
+    image: phpmyadmin
+    # Ce service dépend du service "db".
+    # Docker compose attendra que "db" soit opérationnel avant de démarrer phpmyadmin
+    depends_on:
+      - db
+    environment:
+      # Adresse du server MYSQL auquel phpmyadmin se connecte
+      PMA_HOST: db
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - mysql-phpmyadmin
+
+  rotate:
+    depends_on:
+      - db
+    # Permet de builder une image à partir d'un dockerfile.
+    # Image ou build mais pas les 2 (FROM est obligatoire dans un dockerfile) 
+    build: ./front
+    container_name: rotate_app
+    ports:
+      - 8081:80
+    command: ["nginx", "-g", "daemon off;"]
+
+
+# Déclarations des volumes utilisé dans les services
+volumes:
+  # Volume nommée "db_data" pour stocker les données de la bdd MySql
+  db_data:
+
+# Déclarations des réseaux utilisé
+networks:
+  mysql-phpmyadmin: 
+
+# docker compose up -d 

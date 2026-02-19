@@ -1,0 +1,38 @@
+2025-12-08 11:49:23 - Sales_ETL - INFO - ============================================================
+2025-12-08 11:49:23 - Sales_ETL - INFO - DÉBUT DU PIPELINE - 2025-12-08 11:49:23.370090
+2025-12-08 11:49:23 - Sales_ETL - INFO - ============================================================
+2025-12-08 11:49:23 - Sales_ETL - INFO - 
+[1/3] === EXTRACTION ===
+2025-12-08 11:49:23 - Sales_ETL - INFO - Extraction de data/raw/ventes.csv
+2025-12-08 11:49:23 - Sales_ETL - INFO - 9 lignes extraites
+2025-12-08 11:49:23 - Sales_ETL - INFO - Chargement catalogue produits
+2025-12-08 11:49:23 - Sales_ETL - INFO - 5 produits chargés
+2025-12-08 11:49:23 - Sales_ETL - INFO - Météo récupérée: 14.21°C, couvert
+2025-12-08 11:49:23 - Sales_ETL - INFO - 
+[2/3] === TRANSFORMATION ===
+2025-12-08 11:49:23 - Sales_ETL - INFO - Nettoyage des données
+2025-12-08 11:49:23 - Sales_ETL - INFO -   - 0 doublons supprimés
+2025-12-08 11:49:23 - Sales_ETL - INFO - Nettoyage terminé: 9 lignes
+2025-12-08 11:49:23 - Sales_ETL - INFO - Montant total calculé
+2025-12-08 11:49:23 - Sales_ETL - INFO - Données enrichies avec catalogue produits
+2025-12-08 11:49:23 - Sales_ETL - INFO - Agrégations calculées
+2025-12-08 11:49:23 - Sales_ETL - INFO - 
+[3/3] === CHARGEMENT ===
+2025-12-08 11:49:23 - Sales_ETL - INFO - Chargement multi-feuilles vers data/output/rapport_ventes.xlsx
+2025-12-08 11:49:23 - Sales_ETL - INFO -   - Feuille 'Ventes détaillées': 9 lignes
+2025-12-08 11:49:23 - Sales_ETL - INFO -   - Feuille 'Par produit': 5 lignes
+2025-12-08 11:49:23 - Sales_ETL - INFO -   - Feuille 'Par catégorie': 3 lignes
+2025-12-08 11:49:23 - Sales_ETL - INFO -   - Feuille 'Métadonnées': 1 lignes
+2025-12-08 11:49:23 - Sales_ETL - INFO - Chargement terminé
+2025-12-08 11:49:23 - Sales_ETL - INFO - Chargement vers data/output/rapport_ventes.csv
+2025-12-08 11:49:23 - Sales_ETL - INFO - 9 lignes chargées
+2025-12-08 11:49:23 - Sales_ETL - INFO - 
+Statistiques:
+2025-12-08 11:49:23 - Sales_ETL - INFO -   - Transactions: 9
+2025-12-08 11:49:23 - Sales_ETL - INFO -   - Produits uniques: 5
+2025-12-08 11:49:23 - Sales_ETL - INFO -   - Montant total: 709.82€
+2025-12-08 11:49:23 - Sales_ETL - INFO -   - Catégorie top: Accessoire
+2025-12-08 11:49:23 - Sales_ETL - INFO - 
+============================================================
+2025-12-08 11:49:23 - Sales_ETL - INFO - PIPELINE TERMINÉ AVEC SUCCÈS
+2025-12-08 11:49:23 - Sales_ETL - INFO - ============================================================

@@ -1,0 +1,11 @@
+ville,temperature,ressenti,humidite,description
+Paris,8.73,6.64,84,ciel dégagé
+Lyon,2.29,0.58,97,couvert
+Marseille,8.06,7.13,68,couvert
+Toulouse,8.99,5.58,81,nuageux
+Nice,6.39,6.39,88,couvert
+Nantes,8.96,7.21,76,pluie modérée
+Strasbourg,4.01,2.76,100,nuageux
+Montpellier,9.16,7.78,85,ciel dégagé
+Bordeaux,9.15,6.9,87,légère pluie
+Lille,7.23,4.29,92,nuageux

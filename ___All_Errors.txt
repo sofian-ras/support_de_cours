@@ -1,0 +1,12 @@
+CorrelationId: f682b90d-4dd5-4fda-85a6-754d37756347
+UTC DateTime: 02/19/2026 12:51:59
+
+The following files/folders have not been downloaded
+0. 06. Docker/exercices/correction/Exercice7_dockerfile_aston/aston-villa-angular-dist-ok/src/assets/.gitkeep
+1. 06. Docker/exercices/Exercice7_dockerfile_aston/aston-villa-angular-dist-ok/src/assets/.gitkeep
+2. 12. Web Scraping avec Python/02_demos/scrappy/demo01_scrappy/demo01_scrappy/__init__.py
+3. 12. Web Scraping avec Python/03_exercices/corrections/exercice4/bookstore/bookstore/__init__.py
+4. 12. Web Scraping avec Python/03_exercices/corrections/tp3/ecommerce/ecommerce/__init__.py
+5. 14. AWS S3 et MiniIO/workshop/tests/test_scraper.py
+6. 17. Spark SQL et DataFrame/demo-spark-broad-accumulator/lab-spark-ui/data/.gitkeep
+7. 17. Spark SQL et DataFrame/demo-spark-broad-accumulator/lab-spark-ui/logs/.gitkeep

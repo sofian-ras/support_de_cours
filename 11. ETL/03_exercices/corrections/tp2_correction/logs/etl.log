@@ -1,0 +1,117 @@
+2025-12-08 16:05:40 - Sales_ETL - INFO - ============================================================
+2025-12-08 16:05:40 - Sales_ETL - INFO - DÉBUT DU PIPELINE - 2025-12-08 16:05:40.023907
+2025-12-08 16:05:40 - Sales_ETL - INFO - ============================================================
+2025-12-08 16:05:40 - Sales_ETL - INFO - 
+[1/3] === EXTRACTION ===
+2025-12-08 16:05:40 - Sales_ETL - INFO - Extraction de data/raw/ventes.csv
+2025-12-08 16:05:40 - Sales_ETL - INFO - 9 lignes extraites
+2025-12-08 16:05:40 - Sales_ETL - INFO - Chargement catalogue produits
+2025-12-08 16:05:40 - Sales_ETL - INFO - Extraction de https://api.openweathermap.org/data/2.5/weather/weather
+2025-12-08 16:05:40 - Sales_ETL - ERROR - Erreur extraction API: 404 Client Error: Not Found for url: https://api.openweathermap.org/data/2.5/weather/weather?q=Paris&appid=46b90a40f1b77eca298f768f5949d8dc&units=metric&lang=fr
+2025-12-08 16:05:40 - Sales_ETL - WARNING - Météo non disponible: 404 Client Error: Not Found for url: https://api.openweathermap.org/data/2.5/weather/weather?q=Paris&appid=46b90a40f1b77eca298f768f5949d8dc&units=metric&lang=fr
+2025-12-08 16:05:40 - Sales_ETL - INFO - 
+[2/3] === TRANSFORMATION ===
+2025-12-08 16:05:40 - Sales_ETL - INFO - Nettoyage des données
+2025-12-08 16:05:40 - Sales_ETL - INFO -   - 0 doublons supprimés
+2025-12-08 16:05:40 - Sales_ETL - INFO - Nettoyage terminé: 9 lignes
+2025-12-08 16:05:40 - Sales_ETL - INFO - Montant total calculé
+2025-12-08 16:05:40 - Sales_ETL - INFO - Données enrichies avec catalogue produits
+2025-12-08 16:05:40 - Sales_ETL - INFO - Agrégations calculées
+2025-12-08 16:05:40 - Sales_ETL - INFO - 
+[3/3] === CHARGEMENT ===
+2025-12-08 16:05:40 - Sales_ETL - INFO - Chargement multi-feuilles vers data/output/rapport_ventes.xlsx
+2025-12-08 16:05:40 - Sales_ETL - INFO -   - Feuille 'Ventes détaillées': 9 lignes
+2025-12-08 16:05:40 - Sales_ETL - INFO -   - Feuille 'Par produit': 5 lignes
+2025-12-08 16:05:40 - Sales_ETL - INFO -   - Feuille 'Par catégorie': 3 lignes
+2025-12-08 16:05:40 - Sales_ETL - INFO -   - Feuille 'Métadonnées': 1 lignes
+2025-12-08 16:05:40 - Sales_ETL - INFO - Chargement terminé
+2025-12-08 16:05:40 - Sales_ETL - INFO - Chargement vers data/output/rapport_ventes.csv
+2025-12-08 16:05:40 - Sales_ETL - INFO - 9 lignes chargées
+2025-12-08 16:05:40 - Sales_ETL - INFO - 
+Statistiques:
+2025-12-08 16:05:40 - Sales_ETL - INFO -   - Transactions: 9
+2025-12-08 16:05:40 - Sales_ETL - INFO -   - Produits uniques: 5
+2025-12-08 16:05:40 - Sales_ETL - INFO -   - Montant total: 709.82€
+2025-12-08 16:05:40 - Sales_ETL - INFO -   - Catégorie top: Accessoire
+2025-12-08 16:05:40 - Sales_ETL - INFO - 
+============================================================
+2025-12-08 16:05:40 - Sales_ETL - INFO - PIPELINE TERMINÉ AVEC SUCCÈS
+2025-12-08 16:05:40 - Sales_ETL - INFO - ============================================================
+2025-12-08 16:09:59 - Sales_ETL - INFO - ============================================================
+2025-12-08 16:09:59 - Sales_ETL - INFO - DÉBUT DU PIPELINE - 2025-12-08 16:09:59.847296
+2025-12-08 16:09:59 - Sales_ETL - INFO - ============================================================
+2025-12-08 16:09:59 - Sales_ETL - INFO - 
+[1/3] === EXTRACTION ===
+2025-12-08 16:09:59 - Sales_ETL - INFO - Extraction de data/raw/ventes.csv
+2025-12-08 16:09:59 - Sales_ETL - INFO - 9 lignes extraites
+2025-12-08 16:09:59 - Sales_ETL - INFO - Chargement catalogue produits
+2025-12-08 16:09:59 - Sales_ETL - INFO - Extraction de https://api.openweathermap.org/data/2.5/weather
+2025-12-08 16:10:00 - Sales_ETL - INFO - Données extraites
+2025-12-08 16:10:00 - Sales_ETL - INFO - Météo récupérée: 15.78°C, nuageux
+2025-12-08 16:10:00 - Sales_ETL - INFO - 
+[2/3] === TRANSFORMATION ===
+2025-12-08 16:10:00 - Sales_ETL - INFO - Nettoyage des données
+2025-12-08 16:10:00 - Sales_ETL - INFO -   - 0 doublons supprimés
+2025-12-08 16:10:00 - Sales_ETL - INFO - Nettoyage terminé: 9 lignes
+2025-12-08 16:10:00 - Sales_ETL - INFO - Montant total calculé
+2025-12-08 16:10:00 - Sales_ETL - INFO - Données enrichies avec catalogue produits
+2025-12-08 16:10:00 - Sales_ETL - INFO - Agrégations calculées
+2025-12-08 16:10:00 - Sales_ETL - INFO - 
+[3/3] === CHARGEMENT ===
+2025-12-08 16:10:00 - Sales_ETL - INFO - Chargement multi-feuilles vers data/output/rapport_ventes.xlsx
+2025-12-08 16:10:00 - Sales_ETL - INFO -   - Feuille 'Ventes détaillées': 9 lignes
+2025-12-08 16:10:00 - Sales_ETL - INFO -   - Feuille 'Par produit': 5 lignes
+2025-12-08 16:10:00 - Sales_ETL - INFO -   - Feuille 'Par catégorie': 3 lignes
+2025-12-08 16:10:00 - Sales_ETL - INFO -   - Feuille 'Métadonnées': 1 lignes
+2025-12-08 16:10:00 - Sales_ETL - INFO - Chargement terminé
+2025-12-08 16:10:00 - Sales_ETL - INFO - Chargement vers data/output/rapport_ventes.csv
+2025-12-08 16:10:00 - Sales_ETL - INFO - 9 lignes chargées
+2025-12-08 16:10:00 - Sales_ETL - INFO - 
+Statistiques:
+2025-12-08 16:10:00 - Sales_ETL - INFO -   - Transactions: 9
+2025-12-08 16:10:00 - Sales_ETL - INFO -   - Produits uniques: 5
+2025-12-08 16:10:00 - Sales_ETL - INFO -   - Montant total: 709.82€
+2025-12-08 16:10:00 - Sales_ETL - INFO -   - Catégorie top: Accessoire
+2025-12-08 16:10:00 - Sales_ETL - INFO - 
+============================================================
+2025-12-08 16:10:00 - Sales_ETL - INFO - PIPELINE TERMINÉ AVEC SUCCÈS
+2025-12-08 16:10:00 - Sales_ETL - INFO - ============================================================
+2025-12-08 16:14:23 - Sales_ETL - INFO - ============================================================
+2025-12-08 16:14:23 - Sales_ETL - INFO - DÉBUT DU PIPELINE - 2025-12-08 16:14:23.826810
+2025-12-08 16:14:23 - Sales_ETL - INFO - ============================================================
+2025-12-08 16:14:23 - Sales_ETL - INFO - 
+[1/3] === EXTRACTION ===
+2025-12-08 16:14:23 - Sales_ETL - INFO - Extraction de data/raw/ventes.csv
+2025-12-08 16:14:23 - Sales_ETL - INFO - 9 lignes extraites
+2025-12-08 16:14:23 - Sales_ETL - INFO - Chargement catalogue produits
+2025-12-08 16:14:23 - Sales_ETL - INFO - Extraction de https://api.openweathermap.org/data/2.5/weather
+2025-12-08 16:14:24 - Sales_ETL - INFO - Données extraites
+2025-12-08 16:14:24 - Sales_ETL - INFO - Météo récupérée: 15.78°C, nuageux
+2025-12-08 16:14:24 - Sales_ETL - INFO - 
+[2/3] === TRANSFORMATION ===
+2025-12-08 16:14:24 - Sales_ETL - INFO - Nettoyage des données
+2025-12-08 16:14:24 - Sales_ETL - INFO -   - 0 doublons supprimés
+2025-12-08 16:14:24 - Sales_ETL - INFO - Nettoyage terminé: 9 lignes
+2025-12-08 16:14:24 - Sales_ETL - INFO - Montant total calculé
+2025-12-08 16:14:24 - Sales_ETL - INFO - Données enrichies avec catalogue produits
+2025-12-08 16:14:24 - Sales_ETL - INFO - Agrégations calculées
+2025-12-08 16:14:24 - Sales_ETL - INFO - 
+[3/3] === CHARGEMENT ===
+2025-12-08 16:14:24 - Sales_ETL - INFO - Chargement multi-feuilles vers data/output/rapport_ventes.xlsx
+2025-12-08 16:14:24 - Sales_ETL - INFO -   - Feuille 'Ventes détaillées': 9 lignes
+2025-12-08 16:14:24 - Sales_ETL - INFO -   - Feuille 'Par produit': 5 lignes
+2025-12-08 16:14:24 - Sales_ETL - INFO -   - Feuille 'Par catégorie': 3 lignes
+2025-12-08 16:14:24 - Sales_ETL - INFO -   - Feuille 'Métadonnées': 1 lignes
+2025-12-08 16:14:24 - Sales_ETL - INFO - Chargement terminé
+2025-12-08 16:14:24 - Sales_ETL - INFO - Chargement vers data/output/rapport_ventes.csv
+2025-12-08 16:14:24 - Sales_ETL - INFO - 9 lignes chargées
+2025-12-08 16:14:24 - Sales_ETL - INFO - 
+Statistiques:
+2025-12-08 16:14:24 - Sales_ETL - INFO -   - Transactions: 9
+2025-12-08 16:14:24 - Sales_ETL - INFO -   - Produits uniques: 5
+2025-12-08 16:14:24 - Sales_ETL - INFO -   - Montant total: 709.82€
+2025-12-08 16:14:24 - Sales_ETL - INFO -   - Catégorie top: Accessoire
+2025-12-08 16:14:24 - Sales_ETL - INFO - 
+============================================================
+2025-12-08 16:14:24 - Sales_ETL - INFO - PIPELINE TERMINÉ AVEC SUCCÈS
+2025-12-08 16:14:24 - Sales_ETL - INFO - ============================================================

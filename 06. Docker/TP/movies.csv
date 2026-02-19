@@ -1,0 +1,31 @@
+id,titre,annee_production,genre,age_limite
+1,The Shawshank Redemption,1994,Drame,12
+2,The Godfather,1972,Crime,16
+3,The Dark Knight,2008,Action,12
+4,Pulp Fiction,1994,Crime,18
+5,Forrest Gump,1994,Drame,6
+6,Inception,2010,Action,12
+7,The Matrix,1999,Action,16
+8,Goodfellas,1990,Crime,18
+9,The Lord of the Rings: The Return of the King,2003,Aventure,12
+10,Fight Club,1999,Drame,18
+11,Star Wars: Episode IV - A New Hope,1977,Aventure,6
+12,The Lord of the Rings: The Fellowship of the Ring,2001,Aventure,12
+13,Interstellar,2014,Aventure,12
+14,Spirited Away,2001,Animation,6
+15,Parasite,2019,Comédie,16
+16,The Lion King,1994,Animation,3
+17,Gladiator,2000,Action,12
+18,Titanic,1997,Drame,12
+19,The Avengers,2012,Action,12
+20,Saving Private Ryan,1998,Drame,16
+21,Jurassic Park,1993,Aventure,12
+22,Terminator 2: Judgment Day,1991,Action,12
+23,Schindler's List,1993,Biographie,12
+24,The Silence of the Lambs,1991,Crime,18
+25,E.T. the Extra-Terrestrial,1982,Famille,3
+26,Casablanca,1942,Drame,6
+27,Avatar,2009,Action,12
+28,Raiders of the Lost Ark,1981,Action,12
+29,La La Land,2016,Comédie,6
+30,Back to the Future,1985,Aventure,6

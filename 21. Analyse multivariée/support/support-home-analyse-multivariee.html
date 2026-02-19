@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse Multivariée - Formation Complète | Mohamed - Utopios 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --accent: #06b6d4;
+            --accent-light: #22d3ee;
+            --green: #10b981;
+            --orange: #f59e0b;
+            --red: #ef4444;
+            --purple: #a855f7;
+            --pink: #ec4899;
+            --bg-dark: #0f0f1a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #252542;
+            --bg-surface: #16162a;
+            --text-white: #ffffff;
+            --text-gray: #a1a1aa;
+            --text-muted: #71717a;
+            --border: rgba(99, 102, 241, 0.2);
+            --glow: rgba(99, 102, 241, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-white) 0%, var(--primary-light) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .header-badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-gray);
+        }
+
+        .badge-icon {
+            font-size: 1rem;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Section */
+        .section {
+            margin: 3rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .section-icon.modules { background: linear-gradient(135deg, var(--primary), var(--purple)); }
+        .section-icon.resources { background: linear-gradient(135deg, var(--green), var(--accent)); }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.25rem;
+        }
+
+        /* Module Card */
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .module-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--glow);
+        }
+
+        .module-card:hover::before {
+            opacity: 1;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .module-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .module-number.m1 { background: linear-gradient(135deg, #6366f1, #818cf8); }
+        .module-number.m2 { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+        .module-number.m3 { background: linear-gradient(135deg, #a855f7, #c084fc); }
+        .module-number.m4 { background: linear-gradient(135deg, #10b981, #34d399); }
+        .module-number.m5 { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+        .module-number.m6 { background: linear-gradient(135deg, #ec4899, #f472b6); }
+        .module-number.m7 { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+
+        .module-duration {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: var(--bg-surface);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .module-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .module-description {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .module-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .topic-tag {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--bg-surface);
+            border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        .module-card:hover .topic-tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary-light);
+        }
+
+        .module-arrow {
+            position: absolute;
+            bottom: 1.25rem;
+            right: 1.25rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover .module-arrow {
+            background: var(--primary);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        /* Resources Grid */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .resource-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .resource-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--green);
+            transform: translateY(-2px);
+        }
+
+        .resource-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .resource-icon.glossaire { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+        .resource-icon.interpretation { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+
+        .resource-content {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .resource-description {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Learning Path */
+        .learning-path {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .learning-path h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .path-steps {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .path-step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-surface);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .path-step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .path-arrow {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-text strong {
+            color: var(--text-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                gap: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .path-steps {
+                flex-direction: column;
+            }
+
+            .path-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .module-card, .resource-card {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .module-card:nth-child(1) { animation-delay: 0.1s; }
+        .module-card:nth-child(2) { animation-delay: 0.15s; }
+        .module-card:nth-child(3) { animation-delay: 0.2s; }
+        .module-card:nth-child(4) { animation-delay: 0.25s; }
+        .module-card:nth-child(5) { animation-delay: 0.3s; }
+        .module-card:nth-child(6) { animation-delay: 0.35s; }
+        .module-card:nth-child(7) { animation-delay: 0.4s; }
+        .module-card:nth-child(8) { animation-delay: 0.45s; }
+
+        .resource-card:nth-child(1) { animation-delay: 0.5s; }
+        .resource-card:nth-child(2) { animation-delay: 0.55s; }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">U</div>
+                <span>Utopios® • Formation Data</span>
+            </div>
+            
+            <h1>Analyse Multivariée</h1>
+            <p class="subtitle">
+                De la corrélation à la régression multiple : maîtrisez les techniques statistiques 
+                pour explorer, comprendre et modéliser vos données complexes.
+            </p>
+            
+            <div class="header-badges">
+                <span class="badge"><span class="badge-icon">📊</span> Statistiques avancées</span>
+                <span class="badge"><span class="badge-icon">🐍</span> Python & Pandas</span>
+                <span class="badge"><span class="badge-icon">📈</span> Data Science</span>
+                <span class="badge"><span class="badge-icon">🎯</span> Pratique</span>
+            </div>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Modules</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">100+</div>
+                <div class="stat-label">Slides</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Concepts</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">2</div>
+                <div class="stat-label">Jours</div>
+            </div>
+        </div>
+
+        <!-- Learning Path -->
+        <div class="learning-path">
+            <h3>🗺️ Parcours recommandé</h3>
+            <div class="path-steps">
+                <div class="path-step">
+                    <span class="path-step-number">1</span>
+                    <span>Corrélations</span>
+                </div>
+                <span class="path-arrow">→</span>
+                <div class="path-step">
+                    <span class="path-step-number">2</span>
+                    <span>ACP</span>
+                </div>
+                <span class="path-arrow">→</span>
+                <div class="path-step">
+                    <span class="path-step-number">3</span>
+                    <span>Analyse Factorielle</span>
+                </div>
+                <span class="path-arrow">→</span>
+                <div class="path-step">
+                    <span class="path-step-number">4</span>
+                    <span>Régression Multiple</span>
+                </div>
+                <span class="path-arrow">→</span>
+                <div class="path-step">
+                    <span class="path-step-number">5</span>
+                    <span>Synthèse</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modules Section -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon modules">📚</div>
+                <div>
+                    <h2 class="section-title">Modules de formation</h2>
+                    <p class="section-subtitle">Cliquez sur un module pour accéder au contenu</p>
+                </div>
+            </div>
+
+            <div class="modules-grid">
+                <!-- Module 1: Corrélations -->
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/1-correlations-formation.html" class="module-card">
+                    <div class="module-header">
+                        <div class="module-number m1">01</div>
+                        <div class="module-duration">⏱️ Jour 1 - Matin</div>
+                    </div>
+                    <h3 class="module-title">Corrélations & Visualisation</h3>
+                    <p class="module-description">
+                        Comprendre et mesurer les relations entre variables. Pearson, Spearman, 
+                        Kendall et visualisation avec heatmaps.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic-tag">Pearson</span>
+                        <span class="topic-tag">Spearman</span>
+                        <span class="topic-tag">Heatmap</span>
+                        <span class="topic-tag">P-value</span>
+                    </div>
+                    <div class="module-arrow">→</div>
+                </a>
+
+                <!-- Module 2: ACP -->
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/2-acp-formation.html" class="module-card">
+                    <div class="module-header">
+                        <div class="module-number m2">02</div>
+                        <div class="module-duration">⏱️ Jour 1 - Après-midi</div>
+                    </div>
+                    <h3 class="module-title">ACP - Analyse en Composantes Principales</h3>
+                    <p class="module-description">
+                        Réduire la dimensionnalité des données tout en conservant l'essentiel 
+                        de l'information. Scree plot et biplot.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic-tag">PCA</span>
+                        <span class="topic-tag">Variance expliquée</span>
+                        <span class="topic-tag">Scree plot</span>
+                        <span class="topic-tag">Kaiser</span>
+                    </div>
+                    <div class="module-arrow">→</div>
+                </a>
+
+                <!-- Module 3: Analyse Factorielle -->
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/3-analyse-factorielle.html" class="module-card">
+                    <div class="module-header">
+                        <div class="module-number m3">03</div>
+                        <div class="module-duration">⏱️ Jour 2 - Matin</div>
+                    </div>
+                    <h3 class="module-title">Analyse Factorielle Exploratoire</h3>
+                    <p class="module-description">
+                        Identifier les facteurs latents qui expliquent les corrélations 
+                        entre variables observées. KMO, Bartlett et Varimax.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic-tag">KMO</span>
+                        <span class="topic-tag">Bartlett</span>
+                        <span class="topic-tag">Varimax</span>
+                        <span class="topic-tag">Loadings</span>
+                    </div>
+                    <div class="module-arrow">→</div>
+                </a>
+
+                <!-- Module 3.3: Analyse Factorielle Suite -->
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/3-3-analyse-factorielle.html" class="module-card">
+                    <div class="module-header">
+                        <div class="module-number m3">03+</div>
+                        <div class="module-duration">⏱️ Compléments</div>
+                    </div>
+                    <h3 class="module-title">Analyse Factorielle - Approfondissement</h3>
+                    <p class="module-description">
+                        Concepts avancés de l'analyse factorielle : communautés, 
+                        scores factoriels et interprétation des résultats.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic-tag">Communautés</span>
+                        <span class="topic-tag">Scores</span>
+                        <span class="topic-tag">Rotations</span>
+                    </div>
+                    <div class="module-arrow">→</div>
+                </a>
+
+                <!-- Module 4: Régression Multiple -->
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/4-regression-multiple.html" class="module-card">
+                    <div class="module-header">
+                        <div class="module-number m4">04</div>
+                        <div class="module-duration">⏱️ Jour 2 - Après-midi</div>
+                    </div>
+                    <h3 class="module-title">Régression Multiple</h3>
+                    <p class="module-description">
+                        Modéliser une variable dépendante à partir de plusieurs prédicteurs. 
+                        Hypothèses, diagnostics et interprétation.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic-tag">R²</span>
+                        <span class="topic-tag">VIF</span>
+                        <span class="topic-tag">Résidus</span>
+                        <span class="topic-tag">Coefficients</span>
+                    </div>
+                    <div class="module-arrow">→</div>
+                </a>
+
+                <!-- Module 5: Checklist -->
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/5-checklist-analyse-multivariee.html" class="module-card">
+                    <div class="module-header">
+                        <div class="module-number m5">05</div>
+                        <div class="module-duration">⏱️ Référence</div>
+                    </div>
+                    <h3 class="module-title">Checklist Analyse Multivariée</h3>
+                    <p class="module-description">
+                        Liste de contrôle complète pour mener une analyse multivariée 
+                        de qualité. À garder sous la main !
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic-tag">Validation</span>
+                        <span class="topic-tag">Étapes</span>
+                        <span class="topic-tag">Bonnes pratiques</span>
+                    </div>
+                    <div class="module-arrow">→</div>
+                </a>
+
+                <!-- Module 6: Synthèse 7 étapes -->
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/6-synthese-7-etapes.html" class="module-card">
+                    <div class="module-header">
+                        <div class="module-number m6">06</div>
+                        <div class="module-duration">⏱️ Synthèse</div>
+                    </div>
+                    <h3 class="module-title">Synthèse : Les 7 Étapes</h3>
+                    <p class="module-description">
+                        Récapitulatif de la méthodologie complète en 7 étapes, 
+                        de la préparation à l'interprétation finale.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic-tag">Méthodologie</span>
+                        <span class="topic-tag">Workflow</span>
+                        <span class="topic-tag">Résumé</span>
+                    </div>
+                    <div class="module-arrow">→</div>
+                </a>
+
+                <!-- Module 7: Interprétation Tableaux -->
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/interpretation-tableaux.html" class="module-card">
+                    <div class="module-header">
+                        <div class="module-number m7">07</div>
+                        <div class="module-duration">⏱️ Pratique</div>
+                    </div>
+                    <h3 class="module-title">Interprétation des Tableaux</h3>
+                    <p class="module-description">
+                        Guide pratique pour lire et interpréter les sorties statistiques : 
+                        corrélations, ACP, factorielle et régression.
+                    </p>
+                    <div class="module-topics">
+                        <span class="topic-tag">Lecture</span>
+                        <span class="topic-tag">Outputs</span>
+                        <span class="topic-tag">Interprétation</span>
+                    </div>
+                    <div class="module-arrow">→</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-icon resources">📖</div>
+                <div>
+                    <h2 class="section-title">Ressources complémentaires</h2>
+                    <p class="section-subtitle">Glossaire et références à consulter à tout moment</p>
+                </div>
+            </div>
+
+            <div class="resources-grid">
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/glossaire_statistiques.html" class="resource-card">
+                    <div class="resource-icon glossaire">📚</div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Glossaire Vulgarisé</h3>
+                        <p class="resource-description">50+ concepts expliqués simplement avec des analogies</p>
+                    </div>
+                </a>
+
+                <a href="https://mohamed-formation.s3.eu-west-3.amazonaws.com/data/interpretation-tableaux.html" class="resource-card">
+                    <div class="resource-icon interpretation">🔍</div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Guide d'Interprétation</h3>
+                        <p class="resource-description">Comment lire les sorties Python pas à pas</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-brand">
+                <div class="footer-logo">U</div>
+                <span style="font-weight: 600; font-size: 1.1rem;">Utopios®</span>
+            </div>
+            <p class="footer-text">
+                Formation Analyse Multivariée • <strong>Mohamed</strong> • 2026
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
