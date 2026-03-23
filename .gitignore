@@ -17,3 +17,22 @@ jdk*/
 node_modules/
 dist/
 build/
+
+# Images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.webp
+*.svg
+
+# Tableaux / données tabulaires
+*.csv
+*.xls
+*.xlsx
+*.ods
+
+# Optionnel : autres fichiers souvent lourds
+*.tsv
+*.parquet
