@@ -1,0 +1,30 @@
+name: use artifact
+on: push
+jobs:
+  upload:
+    name: build app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération de notre application
+        uses: actions/checkout@v6
+      - name: Installation des dépendances
+        run: npm ci
+      - name: build de l'application
+        run: npm run build
+      - name : upload du build
+        uses: actions/upload-artifact@v7
+        with:
+          name: mon_app
+          path: dist
+  
+  download:
+    runs-on: ubuntu-latest
+    needs: upload
+    steps:
+      - name : Récupérer l'artéfact
+        uses: actions/download-artifact@v8
+        with:
+          name: mon_app
+      - name : lister les fichiers
+        run: ls
+      
