@@ -1,7 +1,8 @@
 name: Hello CI/CD
 on: push
+
 jobs:
-  hello-world:
+  hello:
     name: premier workflow
     runs-on: ubuntu-latest
 
