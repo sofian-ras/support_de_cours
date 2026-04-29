@@ -1,0 +1,17 @@
+name: Hello CI/CD
+on: push
+
+jobs:
+  hello:
+    name: premier workflow
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Message de bienvenue
+        run: echo "Bienvenue dans la CI/CD pour l'application de vote !"
+
+      - name: Afficher la date et l'heure
+        run: |
+          echo "Date: $(date '+%Y-%m-%d')"
+          echo "Heure: $(date '+%H:%M:%S')"
+          echo "timestamp complet : $(date)"

@@ -1,0 +1,69 @@
+name: Build et Push Docker Images
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-vote:
+    name: Build et Push - Vote (Flask)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Connexion à DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build et Push image Vote
+        uses: docker/build-push-action@v5
+        with:
+          context: ./vote
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/vote:latest
+
+  build-result:
+    name: Build et Push - Result (Node.js)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Connexion à DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build et Push image Result
+        uses: docker/build-push-action@v5
+        with:
+          context: ./result
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/result:latest
+
+  build-worker:
+    name: Build et Push - Worker (.NET)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Connexion à DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build et Push image Worker
+        uses: docker/build-push-action@v5
+        with:
+          context: ./worker
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/worker:latest

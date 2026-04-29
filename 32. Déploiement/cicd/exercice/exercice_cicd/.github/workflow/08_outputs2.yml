@@ -1,0 +1,16 @@
+name: Appelle du 1er workflow 07_output.yml 
+on:
+  - workflow_dispatch
+
+jobs:
+  premier-job:
+    name: appelle du 1er workflow
+    uses: Christophe-Utopios/demo_cicd/.github/workflows/07_outputs.yml@main
+
+  second-job:
+    name: Affiche les outputs du 1er workflow
+    runs-on: ubuntu-latest
+    needs: premier-job
+    steps:
+      - name: Retourne variable1 variable2
+        run: echo "${{ needs.premier-job.outputs.variable1}} ${{ needs.premier-job.outputs.variable2 }}"
