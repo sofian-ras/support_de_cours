@@ -1,0 +1,54 @@
+services:
+	mlflow:
+		image: ghcr.io/mlflow/mlflow:v2.13.0
+		command: >
+			mlflow server
+			--host 0.0.0.0
+			--port 5000
+			--backend-store-uri sqlite:///mlflow/mlflow.db
+			--default-artifact-root /mlflow/artifacts
+		ports:
+			- "5000:5000"
+		volumes:
+			- mlflow-data:/mlflow
+		healthcheck:
+			test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health').read()"]
+			interval: 10s
+			timeout: 5s
+			retries: 12
+		networks:
+			- mlops-network
+
+	trainer:
+		build: .
+		command: python src/train.py
+		depends_on:
+			mlflow:
+				condition: service_healthy
+		environment:
+			- MLFLOW_TRACKING_URI=http://mlflow:5000
+			- MODEL_NAME=predictive-maintenance-model
+		restart: "no"
+		networks:
+			- mlops-network
+
+	api:
+		build: .
+		command: uvicorn api.main:app --host 0.0.0.0 --port 8000
+		depends_on:
+			mlflow:
+				condition: service_healthy
+		ports:
+			- "8000:8000"
+		environment:
+			- MLFLOW_TRACKING_URI=http://mlflow:5000
+			- MODEL_NAME=predictive-maintenance-model
+		networks:
+			- mlops-network
+
+volumes:
+	mlflow-data:
+
+networks:
+	mlops-network:
+		driver: bridge
